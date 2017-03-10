@@ -3,43 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
+
     <script>
-    var shape = ["♡","◇","♠","♣"];
-    var deck = [];
-    var user = [];
-    
-    function decks(){
-        deck = []
-        for(var i = 0 in shape){
-            for(var j=0; j < 13; j++){
-                
-                if(j == 0){
-                    deck.push(shape[i]+("A"));
-                }else if(j == 10){
-                    deck.push(shape[i]+("J"));
-                }else if(j == 11){
-                    deck.push(shape[i]+("Q"));
-                }else if(j == 12){
-                    deck.push(shape[i]+("K"));
-                }else{
-                    deck.push(shape[i]+(j+1));   
-                }
-             }
+
+
+        var shape = ["♡","◇","♠","♣"];
+        var deck = [];
+        var user = [];
+
+    //카드섞기
+        function decks(){
+            deck = []
+            for(var i = 0 in shape){
+                for(var j=0; j < 13; j++){
+                    if(j == 0){
+                        deck.push(shape[i]+("A"));
+                    }else if(j == 10){
+                        deck.push(shape[i]+("J"));
+                    }else if(j == 11){
+                        deck.push(shape[i]+("Q"));
+                    }else if(j == 12){
+                        deck.push(shape[i]+("K"));
+                    }else{
+                        deck.push(shape[i]+(j+1));
+                    }
+                 }
+            }
+            console.log(deck)
         }
-        console.log(deck)
-    }
-    
-    function output(){
-        var random = Math.floor(Math.random() * deck.length);
-        user.push(deck[random]);
-        deck.splice(random,1);
-        console.log(deck);
-        console.log(user);
-    }
+
+
+            //카드 3장주기
+            function output3(){
+                if(user.length<3){
+                    for(var k = 0; k<3; k++){
+                        var random = Math.floor(Math.random() *deck.length);
+                        user.push(deck[random]);
+                        deck.splice(random,1);
+                        }
+                        console.log(deck);
+                        console.log(user);
+                }else{
+                    console.log('1장씩 뽑아주세요');
+                }
+            }
+            // 카드1장주기
+            function output1(){
+                if(user.length<7){
+                    var random = Math.floor(Math.random() *deck.length);
+                    user.push(deck[random]);
+                    deck.splice(random,1);
+                    console.log(deck);
+                    console.log(user);
+                }else{
+                    console.log('끝');
+                }
+            }
+
+
+
+
+    // 넣은다음에 뺌
+
 </script>
 </head>
 <body>
     <button onclick="decks()">섞기</button>
-    <button onclick="output()">카드주기</button>
+    <button onclick="output3()">카드3장주기</button>
+    <button onclick="output1()">카드1장씩주기</button>
 </body>
 </html>
