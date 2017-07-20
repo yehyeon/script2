@@ -1,0 +1,17 @@
+{
+                list:[
+                    {
+                    name:'김보민',
+                    address:'신이문동' 
+                    },{
+                    name:'권서정',
+                    address:'안양' 
+                    },{
+                    name:'조국희',
+                    address:'부천' 
+                    },{
+                    name:'김수인',
+                    address:'모리셔스' 
+                    }
+                    ]
+            }
